@@ -1,2 +1,2 @@
 # day6
-testing rest
+testing rest with nodejs
