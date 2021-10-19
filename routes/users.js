@@ -26,4 +26,13 @@ router.post('/send', function(request, response){
   response.send(request.body);
 
 });
+
+router.put('/:id', function(request, response){
+  let id = request.params.id;
+
+  console.log("id: " + id + "Request body: " + request.body);
+  response.send("id: " + id + "Request body: " + request.body);
+
+});
+
 module.exports = router;
