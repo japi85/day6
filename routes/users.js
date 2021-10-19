@@ -10,12 +10,14 @@ router.get('/first', function(req, res, next) {
   res.send('server responds: first endpoint');
 });
 
+//middle function example (next)
 router.use(function(request,response, next){
 
-  console.log("I am Middle function");
+  console.log("Middle function active");
   next();
 });
-//
+
+//param function
 router.get('/second/:fname', function(request, response){
   
   console.log("Firstname= " + request.params.fname);
@@ -33,6 +35,7 @@ router.post('/send', function(request, response){
 
 });
 
+//put request with parameter id
 router.put('/:id', function(request, response){
   let id = request.params.id;
 
