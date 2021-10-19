@@ -10,6 +10,11 @@ router.get('/first', function(req, res, next) {
   res.send('server responds: first endpoint');
 });
 
+router.use(function(request,response, next){
+
+  console.log("I am Middle function");
+  next();
+});
 //
 router.get('/second/:fname', function(request, response){
   
@@ -18,6 +23,7 @@ router.get('/second/:fname', function(request, response){
 
 });
 
+//send request body and few variables
 router.post('/send', function(request, response){
   
   console.log(request.body);
@@ -30,9 +36,10 @@ router.post('/send', function(request, response){
 router.put('/:id', function(request, response){
   let id = request.params.id;
 
-  console.log("id: " + id + "Request body: " + request.body);
-  response.send("id: " + id + "Request body: " + request.body);
+  console.log("id: " + id + " Request body: " + request.body.name);
+  response.send("id: " + id + " Request body: " + request.body.name);
 
 });
+
 
 module.exports = router;
